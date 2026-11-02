@@ -3,238 +3,357 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Digital Museum | المتحف الرقمي</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المتحف الرقمي | Digital Museum</title>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
-:root{--gold:#d8b66a;--bg:#11110f;--card:#1d1c18;--cream:#eee5d3}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--cream);font-family:Cairo,sans-serif}
-header{text-align:center;padding:55px 18px;background:linear-gradient(135deg,#302819,#11110f);border-bottom:1px solid #66532d}
-header small{color:var(--gold);letter-spacing:3px}
-h1{font-size:clamp(32px,7vw,55px);color:var(--gold);margin:12px}
-header p{color:#c9bda6;max-width:700px;margin:8px auto}
-nav{text-align:center;padding:15px;background:#191711;position:sticky;top:0;z-index:5}
-nav a{color:var(--gold);text-decoration:none;margin:0 12px}
-.intro{text-align:center;padding:30px 15px 10px}
-.intro h2{color:var(--gold)}
-.intro p{color:#bdb3a1}
-.tools{max-width:1000px;margin:20px auto;padding:0 18px}
-input{width:100%;padding:13px;border-radius:8px;border:1px solid #66532d;background:#211f19;color:white;font:inherit}
-.grid{max-width:1200px;margin:25px auto 60px;padding:0 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
-.card{background:var(--card);border:1px solid #423824;border-radius:12px;overflow:hidden}
-.card img{width:100%;height:220px;object-fit:cover;background:#29251b;display:block}
-.cardbody{padding:17px}
-.number{color:var(--gold);font-size:12px}
-.card h3{margin:5px 0;color:var(--gold);font-size:20px}
-.english{color:#aaa18f;font-size:13px;direction:ltr;text-align:right}
-.card p{color:#c9c0af;font-size:14px;line-height:1.8}
-.more{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:9px 18px;border-radius:6px;font:inherit;cursor:pointer}
-.more:hover{background:var(--gold);color:#17140e}
-.details{display:none;padding:0 17px 20px;color:#ddd2bd;font-size:14px;line-height:2}
-.details.show{display:block}
-.details strong{color:var(--gold)}
-footer{text-align:center;padding:30px;background:#191711;color:#a99c82;border-top:1px solid #554426}
-footer span{color:var(--gold)}
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:#111820;
+  color:#f5eee2;
+}
+header{
+  text-align:center;
+  padding:55px 20px 35px;
+  background:linear-gradient(135deg,#182b35,#10151c);
+  border-bottom:2px solid #b89555;
+}
+header h1{color:#d8b875;font-size:34px;margin:0 0 12px}
+header p{color:#d4c8b4;line-height:1.9}
+.search{
+  display:block;
+  width:min(90%,500px);
+  margin:25px auto;
+  padding:14px;
+  border:1px solid #b89555;
+  border-radius:25px;
+  background:#202a33;
+  color:white;
+  font-size:16px;
+  text-align:center;
+}
+.container{
+  width:min(1150px,94%);
+  margin:35px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+.card{
+  background:#202a33;
+  border:1px solid #75613f;
+  border-radius:15px;
+  overflow:hidden;
+  transition:.3s;
+}
+.card:hover{transform:translateY(-5px);border-color:#d8b875}
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  background:#303942;
+  display:block;
+}
+.card-content{padding:18px}
+.card h2{color:#e0c184;font-size:20px;margin:0 0 8px}
+.english{color:#b8b1a4;font-size:14px;direction:ltr;text-align:right}
+.card p{line-height:1.8;color:#e2ddd4}
+button{
+  background:#b89555;
+  color:#15191d;
+  border:0;
+  border-radius:20px;
+  padding:10px 22px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.details{
+  display:none;
+  padding:12px 0;
+  line-height:2;
+  color:#e5d8c1;
+}
+.details.open{display:block}
+footer{
+  text-align:center;
+  padding:30px;
+  margin-top:40px;
+  color:#b9a77f;
+  border-top:1px solid #75613f;
+}
+.status{
+  text-align:center;
+  color:#d8b875;
+  padding:10px;
+  line-height:1.8;
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<small>ANCIENT MESOPOTAMIA • DIGITAL HERITAGE</small>
-<h1>المتحف الرقمي</h1>
-<p>رحلة بين أعظم آثار حضارات بلاد الرافدين، من سومر وأكد وبابل إلى الإمبراطورية الأخمينية.</p>
-<p style="direction:ltr;color:#d8b66a">DIGITAL MUSEUM</p>
+  <h1>المتحف الرقمي</h1>
+  <h2>Digital Museum</h2>
+  <p>رحلة عبر تاريخ حضارات بلاد الرافدين وآثارها الخالدة</p>
 </header>
 
-<nav>
-<a href="#home">الرئيسية</a>
-<a href="#collection">مجموعة الآثار</a>
-<a href="#about">عن المتحف</a>
-</nav>
+<input
+  class="search"
+  id="search"
+  type="text"
+  placeholder="ابحثي عن قطعة أثرية..."
+  oninput="searchArtifacts()"
+>
 
-<section class="intro" id="home">
-<h2>اكتشف حكايات التاريخ</h2>
-<p>عشر قطع أثرية تحكي قصة الفن والدين والحكم والحياة في العالم القديم.</p>
-</section>
+<div class="status" id="status">جاري تحميل صور القطع الأثرية...</div>
 
-<div class="tools">
-<input id="search" type="search" placeholder="ابحث عن قطعة أثرية..." oninput="filterCards()">
-</div>
+<main class="container" id="museum"></main>
 
-<main class="grid" id="collection"></main>
-
-<footer id="about">
-<p><span>Digital Museum</span> — المتحف الرقمي</p>
-<p>مشروع تعليمي للتعريف بآثار حضارات العالم القديم.</p>
+<footer>
+  المتحف الرقمي — Digital Museum
+  <br>
+  رحلة إلى حضارة بلاد الرافدين
 </footer>
 
 <script>
-const OWNER="aalaaosama19991011-history";
-const REPO="digital-museum";
+const OWNER = "aalaaosama19991011-history";
+const REPO = "digital-museum";
 
-const artifacts=[
+/* بيانات القطع الأثرية */
+const artifacts = [
 {
-name:"إناء الوركاء",
-en:"Warka Vase",
-file:"warkavase",
-date:"نحو 3200–3000 قبل الميلاد",
-place:"مدينة الوركاء (أوروك)، جنوب العراق",
-material:"حجر الألباستر",
-info:"يُعد إناء الوركاء من أقدم الأعمال الفنية السردية المعروفة. تتوزع عليه مشاهد في صفوف أفقية متتابعة، تبدأ بالنباتات والحيوانات ثم حاملي القرابين، وتنتهي بمشهد يرتبط غالبًا بالمعبودة إنانا. يكشف الإناء عن تطور الفن والطقوس الدينية في أوروك.",
-refs:"Henri Frankfort, The Art and Architecture of the Ancient Orient؛ Harriet Crawford, Sumer and the Sumerians."
+ name:"إناء الوركاء",
+ english:"Warka Vase",
+ date:"نحو 3200–3000 ق.م",
+ place:"مدينة الوركاء، جنوب العراق",
+ material:"المرمر",
+ file:["warkavase"],
+ description:"يُعد إناء الوركاء من أقدم الأعمال الفنية السردية المعروفة. يتكون من عدة مستويات زخرفية تصور مشاهد من الطبيعة والعبادة وتقديم القرابين، وتنتهي بمشهد تقديم الهدايا إلى الإلهة إنانا.",
+ importance:"يكشف الإناء عن تطور الفن والنحت والتفكير الديني والتنظيم الاجتماعي في حضارة بلاد الرافدين."
 },
 {
-name:"قيثارة أور",
-en:"Lyre of Ur",
-file:"lyreofur",
-date:"نحو 2600–2450 قبل الميلاد",
-place:"المقبرة الملكية في أور، جنوب العراق",
-material:"الخشب والذهب والفضة واللازورد ومواد أخرى",
-info:"عُثر على قيثارات أور في المقبرة الملكية، وهي من أشهر الآلات الموسيقية القديمة. زُينت بعض أجزائها بالذهب واللازورد والصدف. وبسبب تلف الأجزاء الخشبية بمرور الزمن، اعتمدت إعادة تركيب بعض الآلات على بقاياها الأثرية.",
-refs:"Leonard Woolley, Ur Excavations II: The Royal Cemetery؛ Harriet Crawford, Sumer and the Sumerians."
+ name:"قيثارة أور",
+ english:"Lyre of Ur",
+ date:"نحو 2550–2450 ق.م",
+ place:"المقبرة الملكية في أور، العراق",
+ material:"الخشب والذهب والفضة واللازورد والصدف",
+ file:["lyreofur"],
+ description:"آلة موسيقية وترية عُثر عليها في المقبرة الملكية بمدينة أور. زُينت بمكونات ثمينة، واحتوت واجهتها على زخارف ومشاهد حيوانية أسطورية.",
+ importance:"توضح مدى تقدم الموسيقى والصناعات الفنية واستخدام المواد الثمينة في المجتمع السومري."
 },
 {
-name:"رأس الملك الأكدي",
-en:"Akkadian Head",
-file:"akkadianhead",
-date:"نحو 2250–2200 قبل الميلاد",
-place:"نينوى، شمال العراق",
-material:"البرونز",
-info:"رأس برونزي شهير يمثل حاكمًا من العصر الأكدي، لكن هوية الشخصية ليست مؤكدة بصورة قاطعة. يتميز باللحية والشعر المنظمين بدقة، وتظهر عليه آثار تلف متعمد في منطقة العينين. يعكس العمل مهارة فنية عالية وصورة السلطة الملكية في العصر الأكدي.",
-refs:"Dominique Collon, Ancient Near Eastern Art؛ Henri Frankfort, The Art and Architecture of the Ancient Orient."
+ name:"رأس الملك الأكدي",
+ english:"Akkadian Head",
+ date:"نحو 2250 ق.م",
+ place:"مدينة نينوى، العراق",
+ material:"البرونز",
+ file:["akkadianhead"],
+ description:"رأس نحتي ملكي يتميز بالتفاصيل الدقيقة للشعر واللحية والملامح. تعرض الجزء العلوي منه للتلف والتشويه المتعمد في العصور القديمة.",
+ importance:"يُعد مثالًا بارزًا على مهارة النحاتين في العصر الأكدي وعلى تصوير السلطة الملكية."
 },
 {
-name:"مسلة شريعة حمورابي",
-en:"Code of Hammurabi",
-file:"codeofhammurabi",
-date:"نحو 1754 قبل الميلاد",
-place:"بابل؛ عُثر عليها في سوسة، وتوجد حاليًا في متحف اللوفر بباريس",
-material:"حجر الديوريت الداكن",
-info:"تحمل المسلة مجموعة من القوانين المنسوبة إلى الملك حمورابي. يظهر في أعلاها حمورابي أمام الإله شمش، إله العدالة. توضح النصوص جوانب من المجتمع والاقتصاد والأسرة والعقوبات في بابل القديمة، مع اختلاف الأحكام باختلاف المكانة الاجتماعية.",
-refs:"Martha T. Roth, Law Collections from Mesopotamia and Asia Minor؛ Marc Van De Mieroop, King Hammurabi of Babylon."
+ name:"مسلة شريعة حمورابي",
+ english:"Code of Hammurabi",
+ date:"نحو 1754 ق.م",
+ place:"بابل، العراق؛ عُثر عليها في سوسة",
+ material:"حجر الديوريت",
+ file:["codeofhammurabi"],
+ description:"مسلة حجرية ضخمة تحمل مجموعة من القوانين التي أصدرها الملك حمورابي. يظهر في أعلاها الملك واقفًا أمام الإله شمش.",
+ importance:"تُعد من أشهر الوثائق القانونية القديمة، وتقدم معلومات عن القضاء والعقوبات والحياة الاجتماعية في بابل."
 },
 {
-name:"نقش البيستون",
-en:"Behistun Inscription",
-file:"behistuninscription",
-date:"نحو 520–518 قبل الميلاد",
-place:"جبل بيستون، غرب إيران",
-material:"نقش صخري",
-info:"أمر الملك داريوس الأول بتنفيذ هذا النقش لتسجيل انتصاراته وتثبيت شرعية حكمه. كُتب بثلاث لغات: الفارسية القديمة والعيلامية والبابلية. كان للنقش دور أساسي في فك رموز الكتابة المسمارية، ولذلك يُعد من أهم الوثائق التاريخية في دراسة الشرق القديم.",
-refs:"Amélie Kuhrt, The Persian Empire؛ Pierre Briant, From Cyrus to Alexander."
+ name:"نقش البيستون",
+ english:"Behistun Inscription",
+ date:"القرن السادس ق.م",
+ place:"جبل بيستون، إيران",
+ material:"نقش على الصخر",
+ file:["behistuninscription","behistun"],
+ description:"نقش ملكي ضخم أمر به الملك الفارسي داريوس الأول. كُتب بثلاث لغات قديمة: الفارسية القديمة والعيلامية والبابلية.",
+ importance:"كان له دور أساسي في فك رموز الكتابة المسمارية وفهم تاريخ الإمبراطورية الأخمينية."
 },
 {
-name:"بوابة عشتار",
-en:"Ishtar Gate",
-file:"ishtargate",
-date:"نحو 575 قبل الميلاد",
-place:"مدينة بابل، وسط العراق",
-material:"الطوب المحروق المزجج",
-info:"شُيدت البوابة في عهد الملك نبوخذ نصر الثاني، وكانت من المداخل الاحتفالية المهمة لمدينة بابل. زُينت بصفوف من الحيوانات البارزة، ومنها التنين المجنح المعروف باسم موشخوشو والأسود والثيران. ارتبط طريقها بمواكب عيد رأس السنة البابلية.",
-refs:"André Parrot, Babylon and the Old Testament؛ Henri Frankfort, The Art and Architecture of the Ancient Orient."
+ name:"بوابة عشتار",
+ english:"Ishtar Gate",
+ date:"نحو 575 ق.م",
+ place:"مدينة بابل، العراق",
+ material:"الطوب المزجج",
+ file:["ishtargate"],
+ description:"بوابة ضخمة كانت جزءًا من أسوار مدينة بابل. زُينت بالطوب الأزرق اللامع وصور الثيران والتنانين والرموز المرتبطة بالآلهة.",
+ importance:"تُظهر عظمة العمارة البابلية وتقدم تقنيات البناء والزخرفة باستخدام الطوب المزجج."
 },
 {
-name:"زقورة أور",
-en:"Ziggurat of Ur",
-file:"zigguratofur",
-date:"بدأ بناؤها في عهد أور نمو، في القرن 21 قبل الميلاد",
-place:"مدينة أور، محافظة ذي قار، جنوب العراق",
-material:"الطوب اللبن والطوب المحروق والقار",
-info:"الزقورة بناء ديني مدرج مخصص للإله نانا، إله القمر في مدينة أور. تتكون من مصاطب مرتفعة متدرجة، وكانت جزءًا من مركز المدينة الديني. وهي ليست مقبرة ملكية، بل معلم معماري وطقسي بارز في حضارة بلاد الرافدين.",
-refs:"Leonard Woolley, Ur of the Chaldees؛ Seton Lloyd, The Archaeology of Mesopotamia."
+ name:"زقورة أور",
+ english:"Ziggurat of Ur",
+ date:"نحو القرن الحادي والعشرين ق.م",
+ place:"مدينة أور، جنوب العراق",
+ material:"الطوب اللبن والطوب المفخور",
+ file:["zigguratofur","ziggurat","urziggurat"],
+ description:"معبد مدرج ضخم بناه الملك أور نمو في مدينة أور. يتكون من طبقات متدرجة وسلالم تؤدي إلى الجزء العلوي.",
+ importance:"تمثل الزقورة أحد أبرز نماذج العمارة الدينية السومرية، وتعكس التنظيم الهندسي والقدرة الإنشائية."
 },
 {
-name:"تماثيل تل أسمر النذرية",
-en:"Tell Asmar Votive Statues",
-file:"tellasmarvotivesstatues",
-date:"نحو 2900–2600 قبل الميلاد",
-place:"تل أسمر، موقع إشنونا القديم، العراق",
-material:"الجبس والألباستر ومواد حجرية أخرى",
-info:"مجموعة من التماثيل عُثر عليها في معبد أبو. تمثل أشخاصًا في وضع تعبدي، بأيدٍ متشابكة وعيون واسعة بارزة. يُعتقد أنها كانت تمثل المصلين وتبقى في المعبد رمزًا لاستمرار العبادة والتقرب إلى الآلهة.",
-refs:"Henri Frankfort, The Art and Architecture of the Ancient Orient؛ Harriet Crawford, Sumer and the Sumerians."
+ name:"تماثيل تل أسمر النذرية",
+ english:"Tell Asmar Votive Statues",
+ date:"نحو 2900–2600 ق.م",
+ place:"معبد أبو في تل أسمر، العراق",
+ material:"الجبس والحجر الجيري والألباستر",
+ file:[
+   "tellasmarvotivesstatues",
+   "tellasmarvotives",
+   "tellasmar",
+   "tellasmartemples",
+   "votivesstatues"
+ ],
+ description:"مجموعة من التماثيل البشرية عُثر عليها داخل معبد أبو في تل أسمر. تتميز بعيون كبيرة وواسعة وأيدٍ متشابكة، وصُنعت بأحجام مختلفة.",
+ importance:"تمثل هذه التماثيل أشخاصًا يقدمون أنفسهم نذورًا للآلهة، وكانت العيون الواسعة رمزًا للانتباه الدائم والعبادة."
 },
 {
-name:"لوحة نذرية لحكام بلاد الرافدين",
-en:"Votive Plaque of Mesopotamian Rulers",
-file:"votiveplaqueofmesopotamianrulers",
-date:"الألف الثالث قبل الميلاد",
-place:"مواقع مختلفة في بلاد الرافدين، بحسب القطعة",
-material:"الحجر الجيري أو أنواع أخرى من الحجر",
-info:"تُظهر الألواح النذرية جوانب من الحياة الدينية والاجتماعية في بلاد الرافدين. ارتبطت بعض هذه الأعمال بتقديم القرابين وتخليد أعمال الحكام أو إظهار مشاركتهم في الطقوس. ويختلف تفسير وظيفة كل لوحة بحسب نقوشها وموقع العثور عليها.",
-refs:"Seton Lloyd, The Archaeology of Mesopotamia؛ Harriet Crawford, Sumer and the Sumerians."
+ name:"لوحة نذرية لحكام بلاد الرافدين",
+ english:"Votive Plaque of Mesopotamian Rulers",
+ date:"الألفية الثالثة ق.م",
+ place:"بلاد الرافدين",
+ material:"الحجر",
+ file:["votiveplaqueofmesopotamianrulers","votiveplaque"],
+ description:"لوحة أثرية نذرية تحمل مشاهد وشخصيات مرتبطة بالممارسات الدينية والملكية في بلاد الرافدين.",
+ importance:"تساعد اللوحات النذرية على فهم الطقوس الدينية والعلاقة بين الحكام والمعابد."
 },
 {
-name:"مسلة النسور",
-en:"Stele of the Vultures",
-file:"steleofthevultures",
-date:"نحو 2450 قبل الميلاد",
-place:"لجش، جنوب العراق؛ أجزاء منها محفوظة في متحف اللوفر",
-material:"الحجر الجيري",
-info:"ترتبط المسلة بالملك إيناتوم وصراعه مع مدينة أوما. تجمع مشاهدها بين الأحداث العسكرية والرموز الدينية، وتظهر فيها النسور وهي تحمل أجزاء من أجساد الأعداء، وهو ما منحها اسمها الشائع. وتُعد مصدرًا مهمًا لفهم الصراعات السياسية في سومر.",
-refs:"Harriet Crawford, Sumer and the Sumerians؛ Henri Frankfort, The Art and Architecture of the Ancient Orient."
+ name:"مسلة النسور",
+ english:"Stele of the Vultures",
+ date:"نحو 2450 ق.م",
+ place:"مدينة لكش، العراق",
+ material:"الحجر الجيري",
+ file:["steleofthevultures","vultures"],
+ description:"مسلة تاريخية أمر بها الملك إياناتوم ملك لكش لتخليد انتصاره في صراعه مع مدينة أوما. تحمل نقوشًا تصور مشاهد المعارك والجنود والرموز الدينية.",
+ importance:"تُعد من أقدم الشواهد المصورة على الحروب والصراعات السياسية في تاريخ بلاد الرافدين."
 }
 ];
 
-function normalize(s){
-return s.toLowerCase().replace(/[^a-z0-9]/g,"");
+/* إزالة المسافات والنقاط والرموز من أسماء الملفات */
+function normalize(value){
+ return value
+  .toLowerCase()
+  .replace(/[^a-z0-9]/g,"");
 }
 
-function makeCards(){
-const container=document.getElementById("collection");
-container.innerHTML=artifacts.map((a,i)=>`
-<article class="card" data-search="${(a.name+" "+a.en+" "+a.place).toLowerCase()}">
-<img id="photo${i}" alt="${a.name}" src="">
-<div class="cardbody">
-<div class="number">ARTIFACT ${String(i+1).padStart(2,"0")}</div>
-<h3>${a.name}</h3>
-<div class="english">${a.en}</div>
-<p>${a.date}</p>
-<button class="more" onclick="toggleDetails(${i})">اكتشف التفاصيل</button>
-</div>
-<div class="details" id="detail${i}">
-<p><strong>التاريخ:</strong> ${a.date}</p>
-<p><strong>مكان العثور:</strong> ${a.place}</p>
-<p><strong>الخامة:</strong> ${a.material}</p>
-<p>${a.info}</p>
-<p><strong>مراجع للقراءة:</strong> ${a.refs}</p>
-</div>
-</article>`).join("");
-loadPhotos();
-}
-
-function toggleDetails(i){
-document.getElementById("detail"+i).classList.toggle("show");
-}
-
-function filterCards(){
-const q=document.getElementById("search").value.toLowerCase();
-document.querySelectorAll(".card").forEach(c=>{
-c.style.display=c.dataset.search.includes(q)?"":"none";
-});
-}
-
+/* تحميل الصور من ملفات المستودع */
 async function loadPhotos(){
-const api=`https://api.github.com/repos/${OWNER}/${REPO}/contents/`;
-try{
-const response=await fetch(api);
-if(!response.ok)throw new Error("GitHub API error: "+response.status);
-const files=await response.json();
-const images=files.filter(f=>/\.(jpg|jpeg|png|webp)$/i.test(f.name));
+ const status = document.getElementById("status");
 
-artifacts.forEach((a,i)=>{
-const found=images.find(file=>
-normalize(file.name).includes(normalize(a.file))
-);
-if(found){
-document.getElementById("photo"+i).src=found.download_url;
-}
-});
-}catch(error){
-console.error("تعذر تحميل الصور:",error);
-}
+ try{
+  const response = await fetch(
+   `https://api.github.com/repos/${OWNER}/${REPO}/contents/`
+  );
+
+  if(!response.ok){
+   throw new Error("تعذر الوصول إلى ملفات المستودع");
+  }
+
+  const files = await response.json();
+
+  const images = files.filter(file =>
+   file.type === "file" &&
+   /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
+  );
+
+  artifacts.forEach(artifact => {
+   const aliases = artifact.file.map(normalize);
+
+   let match = images.find(file => {
+    const filename = normalize(file.name);
+
+    return aliases.some(alias =>
+     filename.includes(alias) || alias.includes(filename.replace(/(jpg|jpeg|png|webp|gif)$/,""))
+    );
+   });
+
+   /* بحث إضافي مرن عن تماثيل تل أسمر */
+   if(!match && artifact.english === "Tell Asmar Votive Statues"){
+    match = images.find(file => {
+     const filename = normalize(file.name);
+     return filename.includes("tellasmar") ||
+            (filename.includes("votive") && filename.includes("statue"));
+    });
+   }
+
+   artifact.image = match ? match.download_url : "";
+  });
+
+  renderArtifacts();
+
+  const missing = artifacts.filter(a => !a.image);
+
+  if(missing.length){
+   status.textContent =
+    "تم تحميل الموقع. لم يتم العثور على صور: " +
+    missing.map(a => a.name).join("، ");
+  }else{
+   status.textContent = "تم تحميل صور القطع الأثرية بنجاح.";
+  }
+
+ }catch(error){
+  status.textContent =
+   "تعذر تحميل الصور تلقائيًا. تأكدي من أن المستودع عام وأن الصور موجودة في الصفحة الرئيسية للمستودع.";
+  renderArtifacts();
+ }
 }
 
-makeCards();
+/* عرض القطع */
+function renderArtifacts(){
+ const museum = document.getElementById("museum");
+
+ museum.innerHTML = artifacts.map((a,index) => `
+  <article class="card" data-name="${a.name} ${a.english}">
+   ${
+    a.image
+    ? `<img src="${a.image}" alt="${a.name}" loading="lazy">`
+    : `<div style="height:220px;display:grid;place-items:center;color:#c9ad75;background:#303942">الصورة غير موجودة</div>`
+   }
+
+   <div class="card-content">
+    <h2>${a.name}</h2>
+    <div class="english">${a.english}</div>
+
+    <p>${a.description}</p>
+
+    <button onclick="toggleDetails(${index})">عرض التفاصيل</button>
+
+    <div class="details" id="details-${index}">
+     <strong>التاريخ:</strong> ${a.date}<br>
+     <strong>مكان العثور:</strong> ${a.place}<br>
+     <strong>المادة:</strong> ${a.material}<br>
+     <strong>الأهمية التاريخية:</strong> ${a.importance}
+    </div>
+   </div>
+  </article>
+ `).join("");
+}
+
+/* إظهار التفاصيل */
+function toggleDetails(index){
+ const details = document.getElementById("details-" + index);
+ details.classList.toggle("open");
+}
+
+/* البحث */
+function searchArtifacts(){
+ const value = document.getElementById("search").value
+  .trim()
+  .toLowerCase();
+
+ document.querySelectorAll(".card").forEach(card => {
+  card.style.display =
+   card.dataset.name.toLowerCase().includes(value)
+   ? "block"
+   : "none";
+ });
+}
+
+loadPhotos();
 </script>
+
 </body>
 </html>
