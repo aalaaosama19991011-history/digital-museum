@@ -3,28 +3,27 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Digital Museum | المتحف الرقمي</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
 :root{--gold:#d8b66a;--bg:#11110f;--card:#1d1c18;--cream:#eee5d3}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--cream);font-family:'Cairo',sans-serif}
-header{text-align:center;padding:65px 20px 45px;background:linear-gradient(135deg,#29251b,#11110f 70%);border-bottom:1px solid #66532d}
-header .small{color:var(--gold);letter-spacing:4px;font-size:13px}
-h1{font-size:clamp(32px,7vw,58px);margin:12px 0;color:var(--gold)}
-header p{color:#c9bda6;max-width:650px;margin:0 auto}
-nav{text-align:center;padding:15px;background:#171612;position:sticky;top:0;z-index:5;border-bottom:1px solid #403722}
-nav a{color:var(--gold);text-decoration:none;margin:0 12px;font-size:14px}
-.intro{text-align:center;padding:35px 15px 15px}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:Cairo,sans-serif}
+header{text-align:center;padding:55px 18px;background:linear-gradient(135deg,#302819,#11110f);border-bottom:1px solid #66532d}
+header small{color:var(--gold);letter-spacing:3px}
+h1{font-size:clamp(32px,7vw,55px);color:var(--gold);margin:12px}
+header p{color:#c9bda6;max-width:700px;margin:8px auto}
+nav{text-align:center;padding:15px;background:#191711;position:sticky;top:0;z-index:5}
+nav a{color:var(--gold);text-decoration:none;margin:0 12px}
+.intro{text-align:center;padding:30px 15px 10px}
 .intro h2{color:var(--gold)}
 .intro p{color:#bdb3a1}
-.tools{max-width:1000px;margin:20px auto;padding:0 18px;display:flex;gap:10px}
-input{width:100%;padding:13px 16px;border-radius:8px;border:1px solid #66532d;background:#211f19;color:white;font:inherit}
-.grid{max-width:1200px;margin:25px auto 70px;padding:0 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
-.card{background:var(--card);border:1px solid #423824;border-radius:12px;overflow:hidden;transition:.25s}
-.card:hover{transform:translateY(-5px);border-color:var(--gold)}
-.card img{width:100%;height:210px;object-fit:cover;background:#29251b;display:block}
+.tools{max-width:1000px;margin:20px auto;padding:0 18px}
+input{width:100%;padding:13px;border-radius:8px;border:1px solid #66532d;background:#211f19;color:white;font:inherit}
+.grid{max-width:1200px;margin:25px auto 60px;padding:0 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid #423824;border-radius:12px;overflow:hidden}
+.card img{width:100%;height:220px;object-fit:cover;background:#29251b;display:block}
 .cardbody{padding:17px}
 .number{color:var(--gold);font-size:12px}
 .card h3{margin:5px 0;color:var(--gold);font-size:20px}
@@ -35,38 +34,49 @@ input{width:100%;padding:13px 16px;border-radius:8px;border:1px solid #66532d;ba
 .details{display:none;padding:0 17px 20px;color:#ddd2bd;font-size:14px;line-height:2}
 .details.show{display:block}
 .details strong{color:var(--gold)}
-footer{text-align:center;padding:30px 15px;background:#191711;color:#a99c82;border-top:1px solid #554426}
+footer{text-align:center;padding:30px;background:#191711;color:#a99c82;border-top:1px solid #554426}
 footer span{color:var(--gold)}
 </style>
 </head>
 <body>
 <header>
-<div class="small">ANCIENT MESOPOTAMIA • DIGITAL HERITAGE</div>
+<small>ANCIENT MESOPOTAMIA • DIGITAL HERITAGE</small>
 <h1>المتحف الرقمي</h1>
 <p>رحلة بين أعظم آثار حضارات بلاد الرافدين، من سومر وأكد وبابل إلى الإمبراطورية الأخمينية.</p>
-<p style="direction:ltr;margin-top:12px;color:#d8b66a">DIGITAL MUSEUM</p>
+<p style="direction:ltr;color:#d8b66a">DIGITAL MUSEUM</p>
 </header>
+
 <nav>
 <a href="#home">الرئيسية</a>
 <a href="#collection">مجموعة الآثار</a>
 <a href="#about">عن المتحف</a>
 </nav>
+
 <section class="intro" id="home">
 <h2>اكتشف حكايات التاريخ</h2>
 <p>عشر قطع أثرية تحكي قصة الفن والدين والحكم والحياة في العالم القديم.</p>
 </section>
+
 <div class="tools">
 <input id="search" type="search" placeholder="ابحث عن قطعة أثرية..." oninput="filterCards()">
 </div>
+
 <main class="grid" id="collection"></main>
+
 <footer id="about">
 <p><span>Digital Museum</span> — المتحف الرقمي</p>
 <p>مشروع تعليمي للتعريف بآثار حضارات العالم القديم.</p>
 </footer>
+
 <script>
+const OWNER="aalaaosama19991011-history";
+const REPO="digital-museum";
+
 const artifacts=[
 {
-name:"إناء الوركاء",en:"Warka Vase",key:["warka","vase"],
+name:"إناء الوركاء",
+en:"Warka Vase",
+file:"warkavase",
 date:"نحو 3200–3000 قبل الميلاد",
 place:"مدينة الوركاء (أوروك)، جنوب العراق",
 material:"حجر الألباستر",
@@ -74,7 +84,9 @@ info:"يُعد إناء الوركاء من أقدم الأعمال الفنية
 refs:"Henri Frankfort, The Art and Architecture of the Ancient Orient؛ Harriet Crawford, Sumer and the Sumerians."
 },
 {
-name:"قيثارة أور",en:"Lyre of Ur",key:["lyre","ur"],
+name:"قيثارة أور",
+en:"Lyre of Ur",
+file:"lyreofur",
 date:"نحو 2600–2450 قبل الميلاد",
 place:"المقبرة الملكية في أور، جنوب العراق",
 material:"الخشب والذهب والفضة واللازورد ومواد أخرى",
@@ -82,7 +94,9 @@ info:"عُثر على قيثارات أور في المقبرة الملكية،
 refs:"Leonard Woolley, Ur Excavations II: The Royal Cemetery؛ Harriet Crawford, Sumer and the Sumerians."
 },
 {
-name:"رأس الملك الأكدي",en:"Akkadian Head",key:["akkadian","head"],
+name:"رأس الملك الأكدي",
+en:"Akkadian Head",
+file:"akkadianhead",
 date:"نحو 2250–2200 قبل الميلاد",
 place:"نينوى، شمال العراق",
 material:"البرونز",
@@ -90,7 +104,9 @@ info:"رأس برونزي شهير يمثل حاكمًا من العصر الأ�
 refs:"Dominique Collon, Ancient Near Eastern Art؛ Henri Frankfort, The Art and Architecture of the Ancient Orient."
 },
 {
-name:"مسلة شريعة حمورابي",en:"Code of Hammurabi",key:["hammurabi","code"],
+name:"مسلة شريعة حمورابي",
+en:"Code of Hammurabi",
+file:"codeofhammurabi",
 date:"نحو 1754 قبل الميلاد",
 place:"بابل؛ عُثر عليها في سوسة، وتوجد حاليًا في متحف اللوفر بباريس",
 material:"حجر الديوريت الداكن",
@@ -98,7 +114,9 @@ info:"تحمل المسلة مجموعة من القوانين المنسوبة 
 refs:"Martha T. Roth, Law Collections from Mesopotamia and Asia Minor؛ Marc Van De Mieroop, King Hammurabi of Babylon."
 },
 {
-name:"نقش البيستون",en:"Behistun Inscription",key:["behistun","bisotun"],
+name:"نقش البيستون",
+en:"Behistun Inscription",
+file:"behistuninscription",
 date:"نحو 520–518 قبل الميلاد",
 place:"جبل بيستون، غرب إيران",
 material:"نقش صخري",
@@ -106,7 +124,9 @@ info:"أمر الملك داريوس الأول بتنفيذ هذا النقش �
 refs:"Amélie Kuhrt, The Persian Empire؛ Pierre Briant, From Cyrus to Alexander."
 },
 {
-name:"بوابة عشتار",en:"Ishtar Gate",key:["ishtar","gate"],
+name:"بوابة عشتار",
+en:"Ishtar Gate",
+file:"ishtargate",
 date:"نحو 575 قبل الميلاد",
 place:"مدينة بابل، وسط العراق",
 material:"الطوب المحروق المزجج",
@@ -114,7 +134,9 @@ info:"شُيدت البوابة في عهد الملك نبوخذ نصر الث�
 refs:"André Parrot, Babylon and the Old Testament؛ Henri Frankfort, The Art and Architecture of the Ancient Orient."
 },
 {
-name:"زقورة أور",en:"Ziggurat of Ur",key:["ziggurat","ur"],
+name:"زقورة أور",
+en:"Ziggurat of Ur",
+file:"zigguratofur",
 date:"بدأ بناؤها في عهد أور نمو، في القرن 21 قبل الميلاد",
 place:"مدينة أور، محافظة ذي قار، جنوب العراق",
 material:"الطوب اللبن والطوب المحروق والقار",
@@ -122,7 +144,9 @@ info:"الزقورة بناء ديني مدرج مخصص للإله نانا، �
 refs:"Leonard Woolley, Ur of the Chaldees؛ Seton Lloyd, The Archaeology of Mesopotamia."
 },
 {
-name:"تماثيل تل أسمر النذرية",en:"Tell Asmar Votive Statues",key:["tellasmar","votive","statues"],
+name:"تماثيل تل أسمر النذرية",
+en:"Tell Asmar Votive Statues",
+file:"tellasmarvotivesstatues",
 date:"نحو 2900–2600 قبل الميلاد",
 place:"تل أسمر، موقع إشنونا القديم، العراق",
 material:"الجبس والألباستر ومواد حجرية أخرى",
@@ -130,7 +154,9 @@ info:"مجموعة من التماثيل عُثر عليها في معبد أب�
 refs:"Henri Frankfort, The Art and Architecture of the Ancient Orient؛ Harriet Crawford, Sumer and the Sumerians."
 },
 {
-name:"لوحة نذرية لحكام بلاد الرافدين",en:"Votive Plaque of Mesopotamian Rulers",key:["votiveplaque","plaque","rulers"],
+name:"لوحة نذرية لحكام بلاد الرافدين",
+en:"Votive Plaque of Mesopotamian Rulers",
+file:"votiveplaqueofmesopotamianrulers",
 date:"الألف الثالث قبل الميلاد",
 place:"مواقع مختلفة في بلاد الرافدين، بحسب القطعة",
 material:"الحجر الجيري أو أنواع أخرى من الحجر",
@@ -138,7 +164,9 @@ info:"تُظهر الألواح النذرية جوانب من الحياة ال
 refs:"Seton Lloyd, The Archaeology of Mesopotamia؛ Harriet Crawford, Sumer and the Sumerians."
 },
 {
-name:"مسلة النسور",en:"Stele of the Vultures",key:["stele","vultures"],
+name:"مسلة النسور",
+en:"Stele of the Vultures",
+file:"steleofthevultures",
 date:"نحو 2450 قبل الميلاد",
 place:"لجش، جنوب العراق؛ أجزاء منها محفوظة في متحف اللوفر",
 material:"الحجر الجيري",
@@ -147,11 +175,15 @@ refs:"Harriet Crawford, Sumer and the Sumerians؛ Henri Frankfort, The Art and A
 }
 ];
 
+function normalize(s){
+return s.toLowerCase().replace(/[^a-z0-9]/g,"");
+}
+
 function makeCards(){
 const container=document.getElementById("collection");
 container.innerHTML=artifacts.map((a,i)=>`
 <article class="card" data-search="${(a.name+" "+a.en+" "+a.place).toLowerCase()}">
-<img id="photo${i}" alt="${a.name}" src="" loading="lazy">
+<img id="photo${i}" alt="${a.name}" src="">
 <div class="cardbody">
 <div class="number">ARTIFACT ${String(i+1).padStart(2,"0")}</div>
 <h3>${a.name}</h3>
@@ -169,38 +201,40 @@ container.innerHTML=artifacts.map((a,i)=>`
 </article>`).join("");
 loadPhotos();
 }
+
 function toggleDetails(i){
 document.getElementById("detail"+i).classList.toggle("show");
 }
+
 function filterCards(){
 const q=document.getElementById("search").value.toLowerCase();
 document.querySelectorAll(".card").forEach(c=>{
 c.style.display=c.dataset.search.includes(q)?"":"none";
 });
 }
+
 async function loadPhotos(){
-const parts=location.pathname.split("/").filter(Boolean);
-const owner=parts[0], repo=parts[1]||"digital-museum";
-if(!owner)return;
+const api=`https://api.github.com/repos/${OWNER}/${REPO}/contents/`;
 try{
-const response=await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`);
-if(!response.ok)throw new Error("GitHub files unavailable");
+const response=await fetch(api);
+if(!response.ok)throw new Error("GitHub API error: "+response.status);
 const files=await response.json();
 const images=files.filter(f=>/\.(jpg|jpeg|png|webp)$/i.test(f.name));
+
 artifacts.forEach((a,i)=>{
-const found=images.find(f=>{
-const n=f.name.toLowerCase().replace(/[^a-z0-9]/g,"");
-return a.key.some(k=>n.includes(k));
+const found=images.find(file=>
+normalize(file.name).includes(normalize(a.file))
+);
+if(found){
+document.getElementById("photo"+i).src=found.download_url;
+}
 });
-if(found)document.getElementById("photo"+i).src=found.download_url;
-else document.getElementById("photo"+i).alt="الصورة غير متاحة حاليًا";
-});
-}catch(e){
-console.log("تعذر تحميل الصور تلقائيًا",e);
+}catch(error){
+console.error("تعذر تحميل الصور:",error);
 }
 }
+
 makeCards();
 </script>
 </body>
-                                                                       </html>
-  
+</html>
